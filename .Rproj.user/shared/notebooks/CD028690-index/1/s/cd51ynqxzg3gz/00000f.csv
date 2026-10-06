@@ -1,0 +1,1 @@
+"0","myPanelAData |> group_by(sex) |> summarize (mean_chest_cm = mean(chest_cm,na.rm=T))"
