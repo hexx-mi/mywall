@@ -167,31 +167,31 @@ myPanelAData |> gf_histogram(~height_cm,fill =~sex,bins = 50)
 what are the age ranges in the given data set?
 
 ```{r}
-myPanelAData |> gf_bar(~ age,)
+myPanelAData |> gf_bar(~ age)
 ```
 
 what are the age ranges in the given data set?
 
 ```{r}
-myPanelAData |> gf_density(~ weight_kg,)
+myPanelAData |> gf_density(~ weight_kg)
 ```
 
 what is the variation in height in the given data set?
 
 ```{r}
-myPanelAData |> gf_density(~ height_cm,)
+myPanelAData |> gf_density(~ height_cm)
 ```
 
 what is the variation in waist size in the given data set?
 
 ```{r}
-myPanelAData |> gf_density(~ waist_cm,)
+myPanelAData |> gf_density(~ waist_cm)
 ```
 
 what is the variation in hip size in the given data set?
 
 ```{r}
-myPanelAData |> gf_density(~ hip_cm,)
+myPanelAData |> gf_density(~ hip_cm)
 ```
 
 what is the variation in chest size in the given data set?
@@ -217,6 +217,8 @@ mosaic::t_test(chest_cm ~ sex, data= myPanelAData)
 
 ```
 
+
+
 # Panel B — category / talk
 
 *degree × grass is Qual + Qual. mntlhlth is Quant — it belongs in a histogram or a grouped violin, not a mosaic.*
@@ -235,10 +237,6 @@ myPanelBData <- read_csv(file = "data/panel-B.csv")
 glimpse(myPanelBData)
 skim(myPanelBData)
 
-```
-
-```{r}
- vcd::structable(grass ~ hrsrelax, data = myPanelBData)
 ```
 
 ```{r}
@@ -262,10 +260,10 @@ vcd::structable(degree~grass,data=myPanelBData) |> vcd :: mosaic(type="expected"
 ```
 
 ```{r}
-mosaic:xchisq.test(degree~grass, data=myPanelBData)
+mosaic::xchisq.test(degree~grass, data=myPanelBData)
 ```
 
-= \### 2. Ask
+### 2. Ask
 
 One question *this* table can answer. One it cannot. Write both.
 

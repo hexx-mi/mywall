@@ -244,15 +244,59 @@ Loading required package: ggridges
 New to ggformula?  Try the interactive tutorials at 
     https://www.mosaic-web.org/ggformula/</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mosaic)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'mosaic':
+  method                           from   
+  fortify.SpatialPolygonsDataFrame ggplot2
+
+The 'mosaic' package masks several functions from core packages in order to add 
+additional features.  The original behavior of these functions should not be affected by this.
+
+Attaching package: 'mosaic'
+
+The following object is masked from 'package:Matrix':
+
+    mean
+
+The following object is masked from 'package:skimr':
+
+    n_missing
+
+The following object is masked from 'package:scales':
+
+    rescale
+
+The following objects are masked from 'package:dplyr':
+
+    count, do, tally
+
+The following object is masked from 'package:purrr':
+
+    cross
+
+The following object is masked from 'package:ggplot2':
+
+    stat
+
+The following objects are masked from 'package:stats':
+
+    binom.test, cor, cor.test, cov, fivenum, IQR, median, prop.test,
+    quantile, sd, t.test, var
+
+The following objects are masked from 'package:base':
+
+    max, mean, min, prod, range, sample, sum</code></pre>
+</div>
 </div>
 <p>We load from this folder:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"panel-A.csv"</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"panel-B.csv"</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"panel-C.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"panel-A.csv"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"panel-B.csv"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"panel-C.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Found tables train the mark. A campus Free Hunch, if we collect one, is a <strong>made</strong> panel of the same pair type — new people, old grammar. It does not replace A, B, or C.</p>
 </section>
 <section id="panel-a-body-measure" class="level1">
@@ -261,12 +305,12 @@ New to ggformula?  Try the interactive tutorials at
 <section id="see-the-table" class="level3">
 <h3 class="anchored">1. See the table</h3>
 <p>What is a case? Which columns are Quant / Qual? What is missing?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse() / inspect() / skim()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse() / inspect() / skim()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <blockquote class="blockquote">
 <h2 id="read-my-panel-a-cvs-file." class="anchored" data-anchor-id="see-the-table">Read my Panel A CVS File.</h2>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/panel-A.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/panel-A.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 507 Columns: 7
 ── Column specification ────────────────────────────────────────────────────────
@@ -279,7 +323,7 @@ dbl (6): age, weight_kg, height_cm, waist_cm, hip_cm, chest_cm
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 507
 Columns: 7
@@ -291,7 +335,7 @@ $ waist_cm  &lt;dbl&gt; 71.5, 79.0, 83.2, 77.8, 80.0, 82.5, 82.0, 76.8, 68.5, 77
 $ hip_cm    &lt;dbl&gt; 93.5, 94.8, 95.0, 94.0, 98.5, 95.3, 101.0, 98.0, 89.5, 99.8,…
 $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 93.5…</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Data summary</caption>
@@ -488,16 +532,24 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 <section id="ask" class="level3">
 <h3 class="anchored" data-anchor-id="ask">2. Ask</h3>
 <p>One question <em>this</em> table can answer. One it cannot. Write both.</p>
-<p>Who is heavier between men and women ? What is the proportion of men and women ? How does waist size vary for men and women ? How does hip size vary for men and women ? How does chest size vary for men and women ?</p>
+<p>who is heavier between men and women ? what is the proportion of men and women ? how does waist size vary for men and women ? how does hip size vary for men and women ? how does chest size vary for men and women ? what are the age ranges in the given data set? what is the variation in chest size in the given data set? what is the variation in waist size in the given data set? what is the variation in hip size in the given data set? what is the variation in height in the given data set? what is the variation in weight in the given data set? who is taller between men and women? which sex has a larger variation in the age range?</p>
 </section>
 <section id="choose-a-mark" class="level3">
 <h3 class="anchored" data-anchor-id="choose-a-mark">3. Choose a mark</h3>
 <p>Geom, map mark, or (later) test that matches the pair type. Name it before you code.</p>
 <p>Who is heavier between men and women ? -Histogram</p>
-<p>What is the proportion of men and women ? -Histogram</p>
+<p>What is the proportion of men and women ? -Bar</p>
 <p>How does waist size vary for men and women ? -Histogram</p>
 <p>How does hip size vary for men and women ? -Density</p>
 <p>How does chest size vary for men and women ? -Density</p>
+<p>which sex has a larger variation in the age range in the given data-set ? -Histogram</p>
+<p>Who is taller between men and women ? -Histogram</p>
+<p>what are the age ranges in the given data set? -Bar</p>
+<p>what is the variation in chest size in the given data set? -Density</p>
+<p>what is the variation in waist size in the given data set? -Density</p>
+<p>what is the variation in hip size in the given data set? -Density</p>
+<p>what is the variation in height in the given data set? -Density</p>
+<p>what is the variation in weight in the given data set? -Density</p>
 </section>
 <section id="predict" class="level3">
 <h3 class="anchored" data-anchor-id="predict">4. Predict</h3>
@@ -506,13 +558,14 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 <section id="make" class="level3">
 <h3 class="anchored" data-anchor-id="make">5. Make</h3>
 <p>Human brick first. Optional: one AI prompt, pasted below, only for what section 3 named.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># human chunk</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Prompt we actually used</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ai_draft</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ours</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># human chunk</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Prompt we actually used</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ai_draft</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ours</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Who is heavier between men and women ?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>weight_kg,<span class="at">fill =</span><span class="sc">~</span>sex,<span class="at">bins =</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>weight_kg,<span class="at">fill =</span><span class="sc">~</span>sex,<span class="at">bins =</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -521,8 +574,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>What is the proportion of men and women ?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span>sex,<span class="at">fill=</span><span class="sc">~</span>sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span>sex,<span class="at">fill=</span><span class="sc">~</span>sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -531,8 +585,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>How does waist size vary for men and women ?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>waist_cm,<span class="at">fill=</span><span class="sc">~</span>sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>waist_cm,<span class="at">fill=</span><span class="sc">~</span>sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
 </div>
@@ -544,8 +599,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>How does hip size vary for men and women ?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span>hip_cm,<span class="at">fill=</span><span class="sc">~</span>sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span>hip_cm,<span class="at">fill=</span><span class="sc">~</span>sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -554,8 +610,9 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>How does chest size vary for men and women ?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span>chest_cm,<span class="at">fill=</span><span class="sc">~</span>sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span>chest_cm,<span class="at">fill=</span><span class="sc">~</span>sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -564,14 +621,128 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 </div>
 </div>
 </div>
+<p>which sex has a larger variation in the age range in the given data-set ?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span> age, <span class="at">fill =</span> <span class="sc">~</span> sex)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Who is taller between men and women ?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_histogram</span>(<span class="sc">~</span>height_cm,<span class="at">fill =</span><span class="sc">~</span>sex,<span class="at">bins =</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>what are the age ranges in the given data set?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_bar</span>(<span class="sc">~</span> age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>what are the age ranges in the given data set?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> weight_kg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>what is the variation in height in the given data set?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> height_cm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>what is the variation in waist size in the given data set?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> waist_cm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>what is the variation in hip size in the given data set?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> hip_cm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>what is the variation in chest size in the given data set?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">gf_density</span>(<span class="sc">~</span> chest_cm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="say" class="level3">
 <h3 class="anchored" data-anchor-id="say">6. Say</h3>
-<p>Caption + one sentence we will stand behind. Title is a sentence, not a column name.</p>
+<p>We all found the density graph comparing chest sizes of men and women interesting because according to the graph, men have a bigger chest size than women which is quite unexpected. Men also have larger variation in the sizes while women have more difference in density for different sizes. This is surprising because according to the bar graph, the ratio of women is slightly more than men, in comparison. We also found the density graph comparing hip size of men and women surprising because it is contrasting the general belief that women have wider hips.</p>
 </section>
 <section id="limit" class="level3">
 <h3 class="anchored" data-anchor-id="limit">7. Limit</h3>
 <p>What this panel cannot do. Which kit table we refused to abuse.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>myPanelAData <span class="sc">|&gt;</span> <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span> <span class="fu">summarize</span> (<span class="at">mean_chest_cm =</span> <span class="fu">mean</span>(chest_cm,<span class="at">na.rm=</span>T))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  sex    mean_chest_cm
+  &lt;chr&gt;          &lt;dbl&gt;
+1 female          86.1
+2 male           101. </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">t_test</span>(chest_cm <span class="sc">~</span> sex, <span class="at">data=</span> myPanelAData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  chest_cm by sex
+t = -24.993, df = 484.62, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means between group female and group male is not equal to 0
+95 percent confidence interval:
+ -16.10362 -13.75614
+sample estimates:
+mean in group female   mean in group male 
+             86.0600             100.9899 </code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="panel-b-category-talk" class="level1">
@@ -580,7 +751,273 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 <section id="see-the-table-1" class="level3">
 <h3 class="anchored" data-anchor-id="see-the-table-1">1. See the table</h3>
 <p>What is a case? Which columns are Quant / Qual? What is missing?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse() / inspect() / skim()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>myPanelBData <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/panel-B.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 2044 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (2): degree, grass
+dbl (3): hrsrelax, mntlhlth, hrs1
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(myPanelBData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 2,044
+Columns: 5
+$ hrsrelax &lt;dbl&gt; 2, 4, NA, NA, NA, NA, 3, NA, 0, 5, 5, NA, 3, NA, NA, NA, NA, …
+$ mntlhlth &lt;dbl&gt; 3, 6, NA, NA, NA, NA, 0, NA, 0, 10, 0, NA, 0, NA, NA, NA, NA,…
+$ hrs1     &lt;dbl&gt; 55, 45, NA, NA, NA, NA, 45, NA, 40, 48, 26, NA, 40, NA, NA, N…
+$ degree   &lt;chr&gt; "BACHELOR", "BACHELOR", "LT HIGH SCHOOL", "LT HIGH SCHOOL", "…
+$ grass    &lt;chr&gt; NA, "LEGAL", NA, "NOT LEGAL", "NOT LEGAL", "LEGAL", NA, NA, "…</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(myPanelBData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">myPanelBData</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">2044</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">degree</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">grass</td>
+<td style="text-align: right;">785</td>
+<td style="text-align: right;">0.62</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">hrsrelax</td>
+<td style="text-align: right;">890</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">3.68</td>
+<td style="text-align: right;">2.63</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">▇▃▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">mntlhlth</td>
+<td style="text-align: right;">893</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">3.83</td>
+<td style="text-align: right;">7.32</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">hrs1</td>
+<td style="text-align: right;">872</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">40.45</td>
+<td style="text-align: right;">15.17</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: left;">▁▃▇▂▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a> myPanelBData_mod <span class="ot">&lt;-</span> myPanelBData <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(grass)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(myPanelBData_mod)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1259    5</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a> vcd<span class="sc">::</span><span class="fu">structable</span>(degree<span class="sc">~</span>grass,<span class="at">data=</span>myPanelBData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          degree BACHELOR GRADUATE HIGH SCHOOL JUNIOR COLLEGE LT HIGH SCHOOL
+grass                                                                       
+LEGAL                 119       73         304             42             65
+NOT LEGAL             112       63         307             44            130</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span><span class="fu">structable</span>(degree<span class="sc">~</span>grass,<span class="at">data=</span>myPanelBData) <span class="sc">|&gt;</span> vcd <span class="sc">::</span> <span class="fu">mosaic</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>vcd<span class="sc">::</span><span class="fu">structable</span>(degree<span class="sc">~</span>grass,<span class="at">data=</span>myPanelBData) <span class="sc">|&gt;</span> vcd <span class="sc">::</span> <span class="fu">mosaic</span>(<span class="at">type=</span><span class="st">"expected"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>mosaic<span class="sc">::</span><span class="fu">xchisq.test</span>(degree<span class="sc">~</span>grass, <span class="at">data=</span>myPanelBData)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  x
+X-squared = 22.338, df = 8, p-value = 0.004326
+
+  119      112      144   
+(110.63) (120.35) (144.02)
+[6.3e-01] [5.8e-01] [2.5e-06]
+&lt; 0.7959&gt; &lt;-0.7613&gt; &lt;-0.0016&gt;
+     
+   73       63       82   
+( 64.31) ( 69.96) ( 83.72)
+[1.2e+00] [6.9e-01] [3.5e-02]
+&lt; 1.0833&gt; &lt;-0.8327&gt; &lt;-0.1883&gt;
+     
+  304      307      390   
+(295.30) (321.26) (384.43)
+[2.6e-01] [6.3e-01] [8.1e-02]
+&lt; 0.5060&gt; &lt;-0.7956&gt; &lt; 0.2838&gt;
+     
+   42       44       59   
+( 42.78) ( 46.54) ( 55.69)
+[1.4e-02] [1.4e-01] [2.0e-01]
+&lt;-0.1187&gt; &lt;-0.3718&gt; &lt; 0.4439&gt;
+     
+   65      130      110   
+( 89.98) ( 97.89) (117.14)
+[6.9e+00] [1.1e+01] [4.3e-01]
+&lt;-2.6332&gt; &lt; 3.2458&gt; &lt;-0.6593&gt;
+     
+key:
+    observed
+    (expected)
+    [contribution to X-squared]
+    &lt;Pearson residual&gt;</code></pre>
+</div>
+</div>
 </section>
 <section id="ask-1" class="level3">
 <h3 class="anchored" data-anchor-id="ask-1">2. Ask</h3>
@@ -597,11 +1034,11 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 <section id="make-1" class="level3">
 <h3 class="anchored" data-anchor-id="make-1">5. Make</h3>
 <p>Human brick first. Optional: one AI prompt, pasted below, only for what section 3 named.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># human chunk</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Prompt we actually used</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ai_draft</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ours</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># human chunk</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Prompt we actually used</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ai_draft</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ours</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="say-1" class="level3">
 <h3 class="anchored" data-anchor-id="say-1">6. Say</h3>
@@ -616,14 +1053,14 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 <h1>Panel C — place</h1>
 <p><em>lifeExp is the honest fill. pop is a count — symbol map, not choropleth.</em></p>
 <p>Geometry is not in the CSV. Join in R, then use the same seven headings.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(sf)</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(rnaturalearth)</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># world &lt;- ne_countries(scale = "medium", returnclass = "sf")</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # join on country name; list the unmatched labels</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(sf)</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(rnaturalearth)</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co"># world &lt;- ne_countries(scale = "medium", returnclass = "sf")</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # join on country name; list the unmatched labels</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="see-the-table-2" class="level3">
 <h3 class="anchored" data-anchor-id="see-the-table-2">1. See the table</h3>
 <p>What is a case? Which columns are Quant / Qual? What is missing?</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse() / inspect() / skim()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse() / inspect() / skim()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="ask-2" class="level3">
 <h3 class="anchored" data-anchor-id="ask-2">2. Ask</h3>
@@ -640,11 +1077,11 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 <section id="make-2" class="level3">
 <h3 class="anchored" data-anchor-id="make-2">5. Make</h3>
 <p>Human brick first. Optional: one AI prompt, pasted below, only for what section 3 named.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># human chunk</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Prompt we actually used</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ai_draft</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ours</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># human chunk</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ## Prompt we actually used</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ai_draft</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ours</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="say-2" class="level3">
 <h3 class="anchored" data-anchor-id="say-2">6. Say</h3>
@@ -665,7 +1102,7 @@ $ chest_cm  &lt;dbl&gt; 89.5, 97.0, 97.5, 97.0, 97.5, 99.9, 106.9, 102.5, 91.0, 
 <li>Limits: sample, missingness, the test we did not run</li>
 <li>Gift for the steal-this strip (palette, annotation, join trick)</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sessionInfo()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sessionInfo()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
