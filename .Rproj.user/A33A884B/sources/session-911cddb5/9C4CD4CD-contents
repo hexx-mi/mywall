@@ -267,6 +267,8 @@ mosaic::xchisq.test(degree~grass, data=myPanelBData)
 
 One question *this* table can answer. One it cannot. Write both.
 
+does the education of a person affect their opinion on whether marjuana should be legal or not?
+
 ### 3. Choose a mark
 
 Geom, map mark, or (later) test that matches the pair type. Name it before you code.
